@@ -137,6 +137,7 @@ public class IntegrationTests {
         return result.isAllowed();
     }
 
+    @SuppressWarnings("NonAsciiCharacters")
     @Test
     void testWithAmazonVerifiedPermissions() {
         // 위 testNotionSchema 와 완전히 동일한 내용을 이미 AVP 에 등록해 둔 상태이다. (policy store id = CXvsHjrMN5QhHM6ZgsaWHg)
@@ -184,68 +185,70 @@ public class IntegrationTests {
         ));
 
         var ActionViewPage = ActionIdentifier.builder().actionType("Notion::Action").actionId("VIEW_PAGE").build();
-        var ActionTogglePublishPage = ActionIdentifier.builder().actionType("Notion::Action").actionId("TOGGLE_PUBLISH_PAGE").build();
         var ActionEditPage = ActionIdentifier.builder().actionType("Notion::Action").actionId("EDIT_PAGE").build();
+        var ActionTogglePublishPage = ActionIdentifier.builder().actionType("Notion::Action").actionId("TOGGLE_PUBLISH_PAGE").build();
 
-        validate(client, entities, "김수빈", "VIEW_PAGE", "운영진 회의록", Decision.ALLOW);
-        validate(client, entities, "김수빈", "VIEW_PAGE", "버디 논의", Decision.ALLOW);
-        validate(client, entities, "김수빈", "VIEW_PAGE", "박영진 자기소개", Decision.ALLOW);
-        validate(client, entities, "김수빈", "VIEW_PAGE", "김칠기 자기소개", Decision.ALLOW);
-        validate(client, entities, "김수빈", "EDIT_PAGE", "운영진 회의록", Decision.ALLOW);
-        validate(client, entities, "김수빈", "EDIT_PAGE", "버디 논의", Decision.ALLOW);
-        validate(client, entities, "김수빈", "EDIT_PAGE", "박영진 자기소개", Decision.ALLOW);
-        validate(client, entities, "김수빈", "EDIT_PAGE", "김칠기 자기소개", Decision.ALLOW);
-        validate(client, entities, "김수빈", "TOGGLE_PUBLISH_PAGE", "운영진 회의록", Decision.ALLOW);
-        validate(client, entities, "김수빈", "TOGGLE_PUBLISH_PAGE", "버디 논의", Decision.ALLOW);
-        validate(client, entities, "김수빈", "TOGGLE_PUBLISH_PAGE", "박영진 자기소개", Decision.ALLOW);
-        validate(client, entities, "김수빈", "TOGGLE_PUBLISH_PAGE", "김칠기 자기소개", Decision.ALLOW);
+        validate(client, entities, User김수빈, ActionViewPage, Page운영진회의록, Decision.ALLOW);
+        validate(client, entities, User김수빈, ActionViewPage, Page버디논의, Decision.ALLOW);
+        validate(client, entities, User김수빈, ActionViewPage, Page박영진자기소개, Decision.ALLOW);
+        validate(client, entities, User김수빈, ActionViewPage, Page김칠기자기소개, Decision.ALLOW);
+        validate(client, entities, User김수빈, ActionEditPage, Page운영진회의록, Decision.ALLOW);
+        validate(client, entities, User김수빈, ActionEditPage, Page버디논의, Decision.ALLOW);
+        validate(client, entities, User김수빈, ActionEditPage, Page박영진자기소개, Decision.ALLOW);
+        validate(client, entities, User김수빈, ActionEditPage, Page김칠기자기소개, Decision.ALLOW);
+        validate(client, entities, User김수빈, ActionTogglePublishPage, Page운영진회의록, Decision.ALLOW);
+        validate(client, entities, User김수빈, ActionTogglePublishPage, Page버디논의, Decision.ALLOW);
+        validate(client, entities, User김수빈, ActionTogglePublishPage, Page박영진자기소개, Decision.ALLOW);
+        validate(client, entities, User김수빈, ActionTogglePublishPage, Page김칠기자기소개, Decision.ALLOW);
 
-        validate(client, entities, "문성혁", "VIEW_PAGE", "운영진 회의록", Decision.ALLOW);
-        validate(client, entities, "문성혁", "VIEW_PAGE", "버디 논의", Decision.ALLOW);
-        validate(client, entities, "문성혁", "VIEW_PAGE", "박영진 자기소개", Decision.ALLOW);
-        validate(client, entities, "문성혁", "VIEW_PAGE", "김칠기 자기소개", Decision.ALLOW);
-        validate(client, entities, "문성혁", "EDIT_PAGE", "운영진 회의록", Decision.ALLOW);
-        validate(client, entities, "문성혁", "EDIT_PAGE", "버디 논의", Decision.ALLOW);
-        validate(client, entities, "문성혁", "EDIT_PAGE", "박영진 자기소개", Decision.ALLOW);
-        validate(client, entities, "문성혁", "EDIT_PAGE", "김칠기 자기소개", Decision.ALLOW);
-        validate(client, entities, "문성혁", "TOGGLE_PUBLISH_PAGE", "운영진 회의록", Decision.DENY);
-        validate(client, entities, "문성혁", "TOGGLE_PUBLISH_PAGE", "버디 논의", Decision.DENY);
-        validate(client, entities, "문성혁", "TOGGLE_PUBLISH_PAGE", "박영진 자기소개", Decision.DENY);
-        validate(client, entities, "문성혁", "TOGGLE_PUBLISH_PAGE", "김칠기 자기소개", Decision.DENY);
+        validate(client, entities, User문성혁, ActionViewPage, Page운영진회의록, Decision.ALLOW);
+        validate(client, entities, User문성혁, ActionViewPage, Page버디논의, Decision.ALLOW);
+        validate(client, entities, User문성혁, ActionViewPage, Page박영진자기소개, Decision.ALLOW);
+        validate(client, entities, User문성혁, ActionViewPage, Page김칠기자기소개, Decision.ALLOW);
+        validate(client, entities, User문성혁, ActionEditPage, Page운영진회의록, Decision.ALLOW);
+        validate(client, entities, User문성혁, ActionEditPage, Page버디논의, Decision.ALLOW);
+        validate(client, entities, User문성혁, ActionEditPage, Page박영진자기소개, Decision.ALLOW);
+        validate(client, entities, User문성혁, ActionEditPage, Page김칠기자기소개, Decision.ALLOW);
+        validate(client, entities, User문성혁, ActionTogglePublishPage, Page운영진회의록, Decision.DENY);
+        validate(client, entities, User문성혁, ActionTogglePublishPage, Page버디논의, Decision.DENY);
+        validate(client, entities, User문성혁, ActionTogglePublishPage, Page박영진자기소개, Decision.DENY);
+        validate(client, entities, User문성혁, ActionTogglePublishPage, Page김칠기자기소개, Decision.DENY);
 
-        validate(client, entities, "박영진", "VIEW_PAGE", "운영진 회의록", Decision.DENY);
-        validate(client, entities, "박영진", "VIEW_PAGE", "버디 논의", Decision.DENY);
-        validate(client, entities, "박영진", "VIEW_PAGE", "박영진 자기소개", Decision.ALLOW);
-        validate(client, entities, "박영진", "VIEW_PAGE", "김칠기 자기소개", Decision.ALLOW);
-        validate(client, entities, "박영진", "EDIT_PAGE", "운영진 회의록", Decision.DENY);
-        validate(client, entities, "박영진", "EDIT_PAGE", "버디 논의", Decision.DENY);
-        validate(client, entities, "박영진", "EDIT_PAGE", "박영진 자기소개", Decision.ALLOW);
-        validate(client, entities, "박영진", "EDIT_PAGE", "김칠기 자기소개", Decision.DENY);
-        validate(client, entities, "박영진", "TOGGLE_PUBLISH_PAGE", "운영진 회의록", Decision.DENY);
-        validate(client, entities, "박영진", "TOGGLE_PUBLISH_PAGE", "버디 논의", Decision.DENY);
-        validate(client, entities, "박영진", "TOGGLE_PUBLISH_PAGE", "박영진 자기소개", Decision.DENY);
-        validate(client, entities, "박영진", "TOGGLE_PUBLISH_PAGE", "김칠기 자기소개", Decision.DENY);
+        validate(client, entities, User박영진, ActionViewPage, Page운영진회의록, Decision.DENY);
+        validate(client, entities, User박영진, ActionViewPage, Page버디논의, Decision.DENY);
+        validate(client, entities, User박영진, ActionViewPage, Page박영진자기소개, Decision.ALLOW);
+        validate(client, entities, User박영진, ActionViewPage, Page김칠기자기소개, Decision.ALLOW);
+        validate(client, entities, User박영진, ActionEditPage, Page운영진회의록, Decision.DENY);
+        validate(client, entities, User박영진, ActionEditPage, Page버디논의, Decision.DENY);
+        validate(client, entities, User박영진, ActionEditPage, Page박영진자기소개, Decision.ALLOW);
+        validate(client, entities, User박영진, ActionEditPage, Page김칠기자기소개, Decision.DENY);
+        validate(client, entities, User박영진, ActionTogglePublishPage, Page운영진회의록, Decision.DENY);
+        validate(client, entities, User박영진, ActionTogglePublishPage, Page버디논의, Decision.DENY);
+        validate(client, entities, User박영진, ActionTogglePublishPage, Page박영진자기소개, Decision.DENY);
+        validate(client, entities, User박영진, ActionTogglePublishPage, Page김칠기자기소개, Decision.DENY);
 
-        validate(client, entities, "김칠기", "VIEW_PAGE", "운영진 회의록", Decision.DENY);
-        validate(client, entities, "김칠기", "VIEW_PAGE", "버디 논의", Decision.DENY);
-        validate(client, entities, "김칠기", "VIEW_PAGE", "박영진 자기소개", Decision.ALLOW);
-        validate(client, entities, "김칠기", "VIEW_PAGE", "김칠기 자기소개", Decision.ALLOW);
-        validate(client, entities, "김칠기", "EDIT_PAGE", "운영진 회의록", Decision.DENY);
-        validate(client, entities, "김칠기", "EDIT_PAGE", "버디 논의", Decision.DENY);
-        validate(client, entities, "김칠기", "EDIT_PAGE", "박영진 자기소개", Decision.DENY);
-        validate(client, entities, "김칠기", "EDIT_PAGE", "김칠기 자기소개", Decision.ALLOW);
-        validate(client, entities, "김칠기", "TOGGLE_PUBLISH_PAGE", "운영진 회의록", Decision.DENY);
-        validate(client, entities, "김칠기", "TOGGLE_PUBLISH_PAGE", "버디 논의", Decision.DENY);
-        validate(client, entities, "김칠기", "TOGGLE_PUBLISH_PAGE", "박영진 자기소개", Decision.DENY);
-        validate(client, entities, "김칠기", "TOGGLE_PUBLISH_PAGE", "김칠기 자기소개", Decision.DENY);
+        validate(client, entities, User김칠기, ActionViewPage, Page운영진회의록, Decision.DENY);
+        validate(client, entities, User김칠기, ActionViewPage, Page버디논의, Decision.DENY);
+        validate(client, entities, User김칠기, ActionViewPage, Page박영진자기소개, Decision.ALLOW);
+        validate(client, entities, User김칠기, ActionViewPage, Page김칠기자기소개, Decision.ALLOW);
+        validate(client, entities, User김칠기, ActionEditPage, Page운영진회의록, Decision.DENY);
+        validate(client, entities, User김칠기, ActionEditPage, Page버디논의, Decision.DENY);
+        validate(client, entities, User김칠기, ActionEditPage, Page박영진자기소개, Decision.DENY);
+        validate(client, entities, User김칠기, ActionEditPage, Page김칠기자기소개, Decision.ALLOW);
+        validate(client, entities, User김칠기, ActionTogglePublishPage, Page운영진회의록, Decision.DENY);
+        validate(client, entities, User김칠기, ActionTogglePublishPage, Page버디논의, Decision.DENY);
+        validate(client, entities, User김칠기, ActionTogglePublishPage, Page박영진자기소개, Decision.DENY);
+        validate(client, entities, User김칠기, ActionTogglePublishPage, Page김칠기자기소개, Decision.DENY);
     }
 
-    private static void validate(VerifiedPermissionsClient client, EntitiesDefinition entities, String principal, String action, String page, Decision isAuthorized) {
+    private static void validate(VerifiedPermissionsClient client, EntitiesDefinition entities,
+                                 EntityIdentifier entityIdentifier, ActionIdentifier actionIdentifier, EntityIdentifier resourceIdentifier,
+                                 Decision isAuthorized) {
         var resp = client.isAuthorized(builder -> {
             builder.policyStoreId("CXvsHjrMN5QhHM6ZgsaWHg");
-            builder.principal(EntityIdentifier.builder().entityType("Notion::User").entityId(principal).build());
-            builder.action(ActionIdentifier.builder().actionType("Notion::Action").actionId(action).build());
-            builder.resource(EntityIdentifier.builder().entityType("Notion::Page").entityId(page).build());
+            builder.principal(entityIdentifier);
+            builder.action(actionIdentifier);
+            builder.resource(resourceIdentifier);
             builder.entities(entities);
         });
 
