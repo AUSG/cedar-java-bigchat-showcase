@@ -93,15 +93,13 @@ public class IntegrationTests {
                         permit (
                             principal in Notion::Role::"Admin",
                             action in [
-                                Notion::Action::"TOGGLE_PUBLISH_PAGE",
-                                Notion::Action::"VIEW_PAGE",
-                                Notion::Action::"EDIT_PAGE"
+                                Notion::Action::"TOGGLE_PUBLISH_PAGE"
                             ],
                             resource
                         );""", "3"),
                 new Policy("""
                         permit (
-                            principal in Notion::Role::"7th Crew",
+                            principal,
                             action in [
                                 Notion::Action::"EDIT_PAGE"
                             ],
