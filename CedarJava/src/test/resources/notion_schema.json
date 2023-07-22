@@ -1,0 +1,83 @@
+{
+  "Notion": {
+    "entityTypes": {
+      "Role": {
+        "memberOfTypes": [
+          "Role"
+        ]
+      },
+      "User": {
+        "memberOfTypes": [
+          "Role"
+        ]
+      },
+
+      "Workspace": {},
+      "Page": {
+        "memberOfTypes": [
+          "Workspace"
+        ],
+        "shape": {
+          "type": "Record",
+          "attributes": {
+            "owner": {
+              "type": "Entity",
+              "name": "User"
+            }
+          }
+        }
+      }
+    },
+
+    "actions": {
+      "EDIT_PAGE": {
+        "appliesTo": {
+          "principalTypes": [
+            "Role",
+            "User"
+          ],
+          "resourceTypes": [
+            "Workspace",
+            "Page"
+          ]
+        }
+      },
+      "TOGGLE_PUBLISH_PAGE": {
+        "appliesTo": {
+          "principalTypes": [
+            "Role",
+            "User"
+          ],
+          "resourceTypes": [
+            "Workspace",
+            "Page"
+          ]
+        }
+      },
+      "VIEW_PAGE": {
+        "appliesTo": {
+          "principalTypes": [
+            "Role",
+            "User"
+          ],
+          "resourceTypes": [
+            "Workspace",
+            "Page"
+          ]
+        }
+      },
+      "CREATE_PAGE": {
+        "appliesTo": {
+          "principalTypes": [
+            "Role",
+            "User"
+          ],
+          "resourceTypes": [
+            "Workspace",
+            "Page"
+          ]
+        }
+      }
+    }
+  }
+}
