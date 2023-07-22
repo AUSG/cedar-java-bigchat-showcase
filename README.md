@@ -84,3 +84,14 @@ User: 김칠기, Action: TOGGLE_PUBLISH_PAGE, Page: 버디 논의 --> X
 User: 김칠기, Action: TOGGLE_PUBLISH_PAGE, Page: 박영진 자기소개 --> X
 User: 김칠기, Action: TOGGLE_PUBLISH_PAGE, Page: 김칠기 자기소개 --> X
 ```
+
+## Amazon Verified Permissions 를 이용하여 동일한 검증 진행
+
+IntegrationTests.java 의 `testWithAmazonVerifiedPermissions` 를 보면 된다. 
+
+위 데이터를 기반으로, `validate` 유틸함수를 이용해 모든 경우에 대해서 동일한 결과를 받는 것을 확인했다.
+
+한가지 의아한 점은, 내 컴퓨터에 있는 rust cedar engine 을 사용하는 테스트와 AVP 를 호출하는 테스트 간의 시간 차이가 거의 존재하지 않는다는 것인데... 아마 테스트 데이터가 너무 작고, 단순하고, 또 서울 리전의 AVP 를 써서 그런게 아닐까 싶다.
+
+참고로 이 테스트를 실행시키기 위해선 적절한 권한과 AVP 데이터가 존재해야 한다. 따로 설정하지 않으면 ~/.aws/config, ~/.aws/credential 을 자동으로 가져가는 듯 하다.
+
