@@ -1,0 +1,83 @@
+[
+    { "uid": { "type": "Notion::Role", "id": "7th Crew" }, "attrs": {}, "parents": [] },
+    {
+        "uid": { "type": "Notion::Role", "id": "Manager" },
+        "attrs": {},
+        "parents": [{ "type": "Notion::Role", "id": "7th Crew" }]
+    },
+    {
+        "uid": { "type": "Notion::Role", "id": "Admin" },
+        "attrs": {},
+        "parents": [{ "type": "Notion::Role", "id": "Manager" }]
+    },
+    {
+        "uid": { "type": "Notion::User", "id": "김수빈" },
+        "attrs": {},
+        "parents": [{ "type": "Notion::Role", "id": "Admin" }]
+    },
+    {
+        "uid": { "type": "Notion::User", "id": "문성혁" },
+        "attrs": {},
+        "parents": [{ "type": "Notion::Role", "id": "Manager" }]
+    },
+    {
+        "uid": { "type": "Notion::User", "id": "박영진" },
+        "attrs": {},
+        "parents": [{ "type": "Notion::Role", "id": "7th Crew" }]
+    },
+    {
+        "uid": { "type": "Notion::User", "id": "김칠기" },
+        "attrs": {},
+        "parents": [{ "type": "Notion::Role", "id": "7th Crew" }]
+    },
+    { "uid": { "type": "Notion::Workspace", "id": "AUSG 7기 운영진" }, "attrs": {}, "parents": [] },
+    { "uid": { "type": "Notion::Workspace", "id": "AUSG 7기 Crew" }, "attrs": {}, "parents": [] },
+    {
+        "uid": { "type": "Notion::Page", "id": "운영진 회의록" },
+        "attrs": {
+            "owner": {
+                "__entity": {
+                    "type": "Notion::User",
+                    "id": "김수빈"
+                }
+            }
+        },
+        "parents": [{ "type": "Notion::Workspace", "id": "AUSG 7기 운영진" }]
+    },
+    {
+        "uid": { "type": "Notion::Page", "id": "버디 논의" },
+        "attrs": {
+            "owner": {
+                "__entity": {
+                    "type": "Notion::User",
+                    "id": "문성혁"
+                }
+            }
+        },
+        "parents": [{ "type": "Notion::Workspace", "id": "AUSG 7기 운영진" }]
+    },
+    {
+        "uid": { "type": "Notion::Page", "id": "박영진 자기소개" },
+        "attrs": {
+            "owner": {
+                "__entity": {
+                    "type": "Notion::User",
+                    "id": "박영진"
+                }
+            }
+        },
+        "parents": [{ "type": "Notion::Workspace", "id": "AUSG 7기 Crew" }]
+    },
+    {
+        "uid": { "type": "Notion::Page", "id": "김칠기 자기소개" },
+        "attrs": {
+            "owner": {
+                "__entity": {
+                    "type": "Notion::User",
+                    "id": "김칠기"
+                }
+            }
+        },
+        "parents": [{ "type": "Notion::Workspace", "id": "AUSG 7기 Crew" }]
+    }
+]

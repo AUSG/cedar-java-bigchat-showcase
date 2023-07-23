@@ -1,0 +1,83 @@
+[
+    { "identifier": { "entityType": "Notion::Role", "entityId": "7th Crew" }, "attributes": {}, "parents": [] },
+    {
+        "identifier": { "entityType": "Notion::Role", "entityId": "Manager" },
+        "attributes": {},
+        "parents": [{ "entityType": "Notion::Role", "entityId": "7th Crew" }]
+    },
+    {
+        "identifier": { "entityType": "Notion::Role", "entityId": "Admin" },
+        "attributes": {},
+        "parents": [{ "entityType": "Notion::Role", "entityId": "Manager" }]
+    },
+    {
+        "identifier": { "entityType": "Notion::User", "entityId": "김수빈" },
+        "attributes": {},
+        "parents": [{ "entityType": "Notion::Role", "entityId": "Admin" }]
+    },
+    {
+        "identifier": { "entityType": "Notion::User", "entityId": "문성혁" },
+        "attributes": {},
+        "parents": [{ "entityType": "Notion::Role", "entityId": "Manager" }]
+    },
+    {
+        "identifier": { "entityType": "Notion::User", "entityId": "박영진" },
+        "attributes": {},
+        "parents": [{ "entityType": "Notion::Role", "entityId": "7th Crew" }]
+    },
+    {
+        "identifier": { "entityType": "Notion::User", "entityId": "김칠기" },
+        "attributes": {},
+        "parents": [{ "entityType": "Notion::Role", "entityId": "7th Crew" }]
+    },
+    { "identifier": { "entityType": "Notion::Workspace", "entityId": "AUSG 7기 운영진" }, "attributes": {}, "parents": [] },
+    { "identifier": { "entityType": "Notion::Workspace", "entityId": "AUSG 7기 Crew" }, "attributes": {}, "parents": [] },
+    {
+        "identifier": { "entityType": "Notion::Page", "entityId": "운영진 회의록" },
+        "attributes": {
+            "owner": {
+                "entityIdentifier": {
+                    "entityType": "Notion::User",
+                    "entityId": "김수빈"
+                }
+            }
+        },
+        "parents": [{ "entityType": "Notion::Workspace", "entityId": "AUSG 7기 운영진" }]
+    },
+    {
+        "identifier": { "entityType": "Notion::Page", "entityId": "버디 논의" },
+        "attributes": {
+            "owner": {
+                "entityIdentifier": {
+                    "entityType": "Notion::User",
+                    "entityId": "문성혁"
+                }
+            }
+        },
+        "parents": [{ "entityType": "Notion::Workspace", "entityId": "AUSG 7기 운영진" }]
+    },
+    {
+        "identifier": { "entityType": "Notion::Page", "entityId": "박영진 자기소개" },
+        "attributes": {
+            "owner": {
+                "entityIdentifier": {
+                    "entityType": "Notion::User",
+                    "entityId": "박영진"
+                }
+            }
+        },
+        "parents": [{ "entityType": "Notion::Workspace", "entityId": "AUSG 7기 Crew" }]
+    },
+    {
+        "identifier": { "entityType": "Notion::Page", "entityId": "김칠기 자기소개" },
+        "attributes": {
+            "owner": {
+                "entityIdentifier": {
+                    "entityType": "Notion::User",
+                    "entityId": "김칠기"
+                }
+            }
+        },
+        "parents": [{ "entityType": "Notion::Workspace", "entityId": "AUSG 7기 Crew" }]
+    }
+]

@@ -1,0 +1,28 @@
+flowchart LR
+		subgraph Workspace - AUSG 7기 운영진
+				page_a(운영진 회의록)
+				page_b(버디 논의)
+		end
+
+		subgraph Workspace - AUSG 7th Crew
+				page_c(박영진 자기소개)
+				page_d(김칠기 자기소개)
+		end
+
+		subgraph Role - 7th Crew
+				박영진
+				김칠기
+
+				subgraph role_2[Role - Manager]
+						문성혁
+
+						subgraph role_3[Role - Admin]
+						김수빈
+						end
+				end
+		end
+
+		김수빈 --> page_a
+		문성혁 --> page_b
+		박영진 --> page_c
+		김칠기 --> page_d
